@@ -1,1 +1,33 @@
-
+openapi: 3.0.3
+info:
+  title: Restaurant Waitlist Manager API
+  version: 1.0.0
+paths:
+  /:
+    get:
+      summary: Root Endpoint
+      responses:
+        '200':
+          description: Welcome message
+  /waitlist:
+    get:
+      summary: Get all waitlist entries
+      responses:
+        '200':
+          description: List of parties waiting
+    post:
+      summary: Add a new party to the waitlist
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                party_size:
+                  type: integer
+      responses:
+        '200':
+          description: Party successfully added
